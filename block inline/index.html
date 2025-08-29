@@ -1,0 +1,227 @@
+
+<!DOCTYPE html>
+<!-- ไฟล์ตัวอย่างแสดงแท็ก HTML ยอดนิยม พร้อมคอมเมนต์ภาษาไทยอธิบายหน้าที่ -->
+<html lang="th">
+<head>
+  <!-- ส่วน head: เมทาดาทาและการตั้งค่าพื้นฐานของเอกสาร -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>หน้าเดโมแท็ก HTML พร้อมคำอธิบาย</title>
+  <style>
+    body { font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto; margin:0; line-height:1.6; background:#0b1220; color:#e5e7eb; }
+    header, footer, section, article, aside, nav, main { padding: 16px 20px; }
+    header, footer { background:#111827; border-top:1px solid #1f2937; border-bottom:1px solid #1f2937; }
+    .wrap { max-width: 1100px; margin: 0 auto; }
+    h1,h2,h3 { margin: 0.6em 0 0.4em; }
+    .card { background:#0f172a; border:1px solid #1f2937; border-radius:14px; padding:16px; margin:12px 0; }
+    code, pre, kbd, samp { background:#0b1220; border:1px solid #1f2937; padding:2px 6px; border-radius:6px; }
+    table { width:100%; border-collapse: collapse; }
+    th, td { border-bottom:1px solid #1f2937; padding:8px 10px; vertical-align: top; }
+    img, video { max-width: 100%; height: auto; border-radius: 10px; }
+    .two { display:grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    @media (max-width: 800px) { .two { grid-template-columns: 1fr; } }
+    .note { color:#9ca3af; }
+  </style>
+</head>
+<body>
+  <!-- header: ใช้สำหรับโลโก้ เมนู บาร์นำทาง -->
+  <header>
+    <div class="wrap">
+      <h1>สาธิตแท็ก HTML ที่ควรรู้</h1>
+      <!-- nav: เมนูนำทาง -->
+      <nav>
+        <a href="#structure">โครงสร้าง</a> •
+        <a href="#text">ข้อความ</a> •
+        <a href="#media">สื่อ</a> •
+        <a href="#table">ตาราง</a> •
+        <a href="#form">ฟอร์ม</a> •
+        <a href="#interactive">อินเทอร์แอกทีฟ</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- main: เนื้อหาหลักของหน้า (ควรมีเพียงหนึ่ง) -->
+  <main id="main" class="wrap">
+    <article class="card" id="structure">
+      <h2>1) โครงสร้าง & ส่วนประกอบ</h2>
+      <p class="note">ตัวอย่างการใช้ <code>header</code>, <code>section</code>, <code>article</code>, <code>aside</code>, <code>footer</code></p>
+      <section class="two">
+        <div>
+          <h3>ส่วนหลัก</h3>
+          <p>เอกสารนี้ใช้ <strong>semantic HTML</strong> เพื่อช่วย SEO และการเข้าถึง (Accessibility).</p>
+          <address>ผู้เขียน: สมชาย โค้ดเดอร์ • อีเมล: <a href="mailto:dev@example.com">dev@example.com</a></address>
+        </div>
+        <aside>
+          <!-- aside: ข้อมูลเสริม -->
+          <h3>ข้อมูลเพิ่มเติม</h3>
+          <p>บทความที่เกี่ยวข้อง: <a href="#">เริ่มต้นกับ CSS</a>, <a href="#">Flexbox</a></p>
+        </aside>
+      </section>
+    </article>
+
+    <article class="card" id="text">
+      <h2>2) ข้อความ & ลิสต์</h2>
+      <p>นี่คือย่อหน้าหนึ่ง (<code>&lt;p&gt;</code>) ตัวอย่าง <em>emphasis</em>, <strong>strong</strong>, <mark>ไฮไลท์</mark>, <abbr title="HyperText Markup Language">HTML</abbr>, <q cite="https://example.com">คำพูดสั้น</q>.</p>
+      <blockquote cite="https://example.com"><p>นี่คือการอ้างอิงแบบยาวด้วย <code>&lt;blockquote&gt;</code>.</p></blockquote>
+      <pre><code>// pre + code: เว้นวรรคและขึ้นบรรทัดใหม่คงอยู่
+function hello(name) {
+  return `สวัสดี ${name}`;
+}</code></pre>
+
+      <div class="two">
+        <div>
+          <h3>ลิสต์</h3>
+          <ol>
+            <li>ขั้นตอนที่หนึ่ง</li>
+            <li>ขั้นตอนที่สอง</li>
+            <li>ขั้นตอนที่สาม</li>
+          </ol>
+          <ul>
+            <li>รายการ A</li>
+            <li>รายการ B</li>
+          </ul>
+          <dl>
+            <dt>Semantic</dt><dd>โครงสร้างที่มีความหมายต่อเนื้อหา</dd>
+            <dt>Accessibility</dt><dd>การเข้าถึงสำหรับทุกคน</dd>
+          </dl>
+        </div>
+        <div>
+          <h3>ตัวอย่างรูปกับคำอธิบาย (figure)</h3>
+          <figure>
+            <img src="https://via.placeholder.com/600x300" alt="ภาพตัวอย่าง" />
+            <figcaption>คำอธิบายรูปภาพโดยใช้ &lt;figcaption&gt;</figcaption>
+          </figure>
+        </div>
+      </div>
+    </article>
+
+    <article class="card" id="media">
+      <h2>3) สื่อ & การฝัง</h2>
+      <div class="two">
+        <div>
+          <h3>ภาพ/วิดีโอ/เสียง</h3>
+          <picture>
+            <source media="(max-width: 600px)" srcset="https://via.placeholder.com/400x200">
+            <img src="https://via.placeholder.com/800x400" alt="Responsive image" />
+          </picture>
+          <video controls width="100%">
+            <source src="sample.mp4" type="video/mp4" />
+            เบราว์เซอร์ไม่รองรับวิดีโอ
+          </video>
+          <audio controls>
+            <source src="sample.mp3" type="audio/mpeg" />
+            เบราว์เซอร์ไม่รองรับเสียง
+          </audio>
+        </div>
+        <div>
+          <h3>canvas & iframe</h3>
+          <canvas id="c" width="300" height="100">Canvas ไม่รองรับ</canvas>
+          <p class="note">ตัวอย่าง iframe (อาจถูกบล็อกจากบางไซต์):</p>
+          <iframe src="about:blank" title="ตัวอย่าง Iframe" width="100%" height="100"></iframe>
+          <script>
+            // ตัวอย่างวาด canvas แบบง่าย
+            const ctx = document.getElementById('c').getContext('2d');
+            ctx.fillStyle = '#22d3ee';
+            ctx.fillRect(10, 10, 120, 80);
+          </script>
+        </div>
+      </div>
+    </article>
+
+    <article class="card" id="table">
+      <h2>4) ตาราง</h2>
+      <table>
+        <caption>สรุปคะแนน</caption>
+        <thead><tr><th scope="col">ชื่อ</th><th scope="col">คะแนน</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">เอ</th><td>90</td></tr>
+          <tr><th scope="row">บี</th><td>85</td></tr>
+        </tbody>
+        <tfoot><tr><td colspan="2">รวมเฉลี่ย 87.5</td></tr></tfoot>
+      </table>
+    </article>
+
+    <article class="card" id="form">
+      <h2>5) ฟอร์ม</h2>
+      <!-- form: กล่องกรอกข้อมูลและส่ง -->
+      <form action="#" method="post" autocomplete="on">
+        <fieldset>
+          <legend>สมัครรับข่าวสาร</legend>
+
+          <label for="name">ชื่อ</label>
+          <input id="name" name="name" type="text" placeholder="เช่น สมชาย" required />
+
+          <label for="email">อีเมล</label>
+          <input id="email" name="email" type="email" placeholder="you@example.com" required />
+
+          <label for="role">บทบาท</label>
+          <select id="role" name="role">
+            <optgroup label="สายเทคนิค">
+              <option value="fe">Frontend</option>
+              <option value="be">Backend</option>
+            </optgroup>
+            <optgroup label="อื่น ๆ">
+              <option value="pm">Project Manager</option>
+            </optgroup>
+          </select>
+
+          <label for="msg">ข้อความ</label>
+          <textarea id="msg" name="msg" rows="3" placeholder="ฝากข้อความไว้ที่นี่"></textarea>
+
+          <label for="lang">ภาษา (datalist)</label>
+          <input id="lang" name="lang" list="langs" placeholder="ไทย/อังกฤษ" />
+          <datalist id="langs">
+            <option value="ไทย" />
+            <option value="อังกฤษ" />
+            <option value="ญี่ปุ่น" />
+          </datalist>
+
+          <div>
+            <label>ความคืบหน้า:</label>
+            <progress value="70" max="100">70%</progress>
+            <label>อุณหภูมิ:</label>
+            <meter value="0.65" min="0" max="1" low="0.3" high="0.8" optimum="0.6">0.65</meter>
+          </div>
+
+          <div style="margin-top:8px;">
+            <button type="submit">ส่งข้อมูล</button>
+            <button type="reset">ล้าง</button>
+          </div>
+        </fieldset>
+      </form>
+      <output id="out" for="name email"></output>
+    </article>
+
+    <article class="card" id="interactive">
+      <h2>6) อินเทอร์แอกทีฟ & สคริปต์</h2>
+      <details open>
+        <summary>คลิกเพื่อพับ/กาง (details/summary)</summary>
+        <p>องค์ประกอบย่อ–ขยายที่ไม่ต้องใช้ JS</p>
+      </details>
+
+      <dialog id="dlg">
+        <p>นี่คือกล่องโต้ตอบ (dialog)</p>
+        <form method="dialog">
+          <button>ปิด</button>
+        </form>
+      </dialog>
+      <button onclick="document.getElementById('dlg').showModal()">เปิด Dialog</button>
+
+      <template id="tpl">
+        <p>นี่คือเทมเพลต จะไม่แสดงจนกว่าจะถูกโคลนด้วย JS</p>
+      </template>
+      <button onclick="
+        const t = document.getElementById('tpl');
+        const clone = t.content.cloneNode(true);
+        this.insertAdjacentElement('afterend', document.createElement('div')).appendChild(clone);
+      ">แทรกเทมเพลต</button>
+    </article>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      &copy; 2025 ตัวอย่างโดยผู้ช่วย • ใช้เพื่อการศึกษา
+    </div>
+  </footer>
+</body>
+</html>
